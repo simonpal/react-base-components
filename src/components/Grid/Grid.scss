@@ -1,0 +1,86 @@
+@import "../../styles/scss-variables.scss";
+
+@mixin create-mq($breakpoint) {
+    $min: nth($breakpoint, 1);
+    $max: nth($breakpoint, 2);
+    @if $min == 1281px {
+        @media screen and (min-width: $min) {
+            @content;
+        }
+    } @else {
+        @media screen and (min-width: $min) and (max-width: $max) {
+            @content;
+        }
+    }
+}
+
+@mixin create-col-classes($modifier, $grid__cols, $breakpoint) {
+    @include create-mq($breakpoint) {
+        .base-col#{$modifier}-offset-0 {
+            margin-left: 0;
+        }
+        @for $i from 1 through $grid__cols {
+            .base-col#{$modifier}-#{$i} {
+                flex-basis: ((100 / ($grid__cols / $i)) - 0.0001) * 1%;
+                width: ((100 / ($grid__cols / $i)) - 0.0001) * 1%;
+            }
+            .base-col#{$modifier}-offset-#{$i} {
+                padding-left: 0 !important;
+                margin-left: (100 / ($grid__cols / $i)) * 1%;
+            }
+        }
+    }
+}
+
+@each $modifier, $breakpoint in $map-grid-props {
+    @if ($modifier == "") {
+        $modifier: "-xs";
+    }
+    @include create-mq($breakpoint) {
+        .base-hidden#{$modifier}-down {
+            display: none !important;
+        }
+    }
+    @include create-mq($breakpoint) {
+        .base-hidden#{$modifier}-up {
+            display: none !important;
+        }
+    }
+}
+
+.base-row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    > div[class*="base-col"] {
+        display: flex;
+        flex-direction: column;
+    }
+    @each $modifier, $breakpoint in $map-grid-props {
+        @include create-col-classes($modifier, $grid__cols, $breakpoint);
+    }
+    @each $space in $spacing {
+        &.base-child-spacing-#{$space} {
+            margin-left: calc(var(--spacing-#{$space}) * -1);
+            margin-top: calc(var(--spacing-#{$space}) * -1);
+            width: calc(100% + var(--spacing-#{$space}));
+            > div[class*="base-col"] {
+                padding-left: var(--spacing-#{$space});
+                padding-top: var(--spacing-#{$space});
+            }
+        }
+    }
+    @media screen and (max-width: nth($breakpoint-xs, 2)) {
+        @each $space in $spacing {
+            &.base-child-mobile-spacing-#{$space} {
+                margin-left: calc(var(--spacing-#{$space}) * -1);
+                margin-top: calc(var(--spacing-#{$space}) * -1);
+                width: calc(100% + var(--spacing-#{$space}));
+                > div[class*="col"] {
+                    padding-left: var(--spacing-#{$space});
+                    padding-top: var(--spacing-#{$space});
+                }
+            }
+        }
+    }
+}
