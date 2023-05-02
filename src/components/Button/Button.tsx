@@ -15,7 +15,12 @@ const ripple = keyframes`
             }
 `
 
-const StyledButton = styled.button`
+type StyledButtonProps = {
+  $fullWidth: boolean
+  $iconLeft: boolean
+}
+
+const StyledButton = styled.button<StyledButtonProps>`
   --button-font-size: 16px;
   --color-button-primary-background: #000;
   --color-button-primary-color: #fff;
@@ -28,7 +33,6 @@ const StyledButton = styled.button`
   --color-button-tertiary-hover: transparent;
   --size-button-default: 3rem;
   --button-radius: 1.5rem;
-  --fontweights-bold: 600;
   --ripple-background: #010101;
   --color-button-outline-background: transparent;
   --color-button-outline-color: #000;
@@ -41,8 +45,8 @@ const StyledButton = styled.button`
   padding: 0 1rem;
   border-width: 0;
   font-size: var(--button-font-size);
-  font-weight: var(--fontweights-bold);
-  display: inline-flex;
+  font-weight: bold;
+  display: ${({ $fullWidth }) => ($fullWidth ? 'flex' : 'inline-flex')};
   justify-content: center;
   line-height: 100%;
   cursor: pointer;
@@ -80,6 +84,8 @@ const StyledButton = styled.button`
   }
 
   svg {
+    margin: ${({ $iconLeft }) =>
+      $iconLeft ? '0 var(--spacing-xs) 0 0' : '0 0 0 var(--spacing-xs)'};
     path {
       fill: var(--color-button-primary-color);
     }
@@ -96,20 +102,6 @@ const StyledButton = styled.button`
     opacity: 0.5;
   }
 
-  &.icon-left svg {
-    margin-left: 0;
-    margin-right: var(--spacing-xs);
-  }
-
-  &.icon-right svg {
-    margin-right: 0;
-    margin-left: var(--spacing-xs);
-  }
-
-  &.small-text {
-    font-size: 12px;
-  }
-
   &.secondary {
     background-color: var(--color-button-secondary-background);
     color: var(--color-button-secondary-color);
@@ -118,10 +110,6 @@ const StyledButton = styled.button`
       @media screen and (min-width: 601px) {
         background-color: var(--color-button-secondary-hover);
       }
-    }
-
-    &:disabled {
-      opacity: 0.5;
     }
 
     svg path {
@@ -140,10 +128,6 @@ const StyledButton = styled.button`
       }
     }
 
-    &:disabled {
-      opacity: 0.5;
-    }
-
     svg path {
       fill: var(--color-button-tertiary-color);
     }
@@ -158,10 +142,6 @@ const StyledButton = styled.button`
       @media screen and (min-width: 601px) {
         background-color: var(--color-button-outline-hover);
       }
-    }
-
-    &:disabled {
-      opacity: 0.5;
     }
 
     svg path {
@@ -193,7 +173,6 @@ export const Button: React.FunctionComponent<
   ...rest
 }) => {
   const classes = getClasses({
-    'base-full-width': fullWidth,
     [`icon-${iconLeft ? 'left' : 'right'}`]: true,
   })
 
@@ -212,6 +191,8 @@ export const Button: React.FunctionComponent<
       onClick={onClick}
       type={type}
       disabled={disabled}
+      $fullWidth={fullWidth}
+      $iconLeft={iconLeft}
       {...rest}
     >
       {children}
