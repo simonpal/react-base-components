@@ -442,11 +442,11 @@ export const Dropdown = forwardRef<
             disabled={selectedValue === defaultValue}
             onClick={clearValue}
           >
-            <TimesIcon size="12px" color="#000" />
+            <TimesIcon />
           </button>
         )}
         <i aria-hidden="true" className={`dropdown-icon ${isFocused && 'is-focused'}`}>
-          <AngleDownIcon size="13px" />
+          <AngleDownIcon />
         </i>
         {filteredOptions.length > 0 && (
           <ul

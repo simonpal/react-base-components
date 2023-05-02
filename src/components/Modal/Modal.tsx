@@ -35,15 +35,9 @@ const StyledModal = styled.div<StyledModalProps>`
     top: -24px;
     width: 48px;
     height: 48px;
-
+    font-size: 1.5rem;
     svg {
-      width: 16px;
-      height: 16px;
       margin: 0;
-
-      path {
-        fill: #000;
-      }
     }
 
     @media screen and (max-width: $breakpoint-mobile-max) {
