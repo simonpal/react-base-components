@@ -22,6 +22,12 @@ export default meta
 type Story = StoryObj<typeof TextField>
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-export const OneItem: Story = {
+export const Default: Story = {
   render: ({ label = 'Label', ...rest }) => <TextField label={label} {...rest} />,
+}
+
+export const Password: Story = {
+  render: ({ label = 'password', type = 'password', ...rest }) => (
+    <TextField label={label} type={type} {...rest} />
+  ),
 }

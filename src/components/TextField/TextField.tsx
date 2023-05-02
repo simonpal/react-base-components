@@ -8,7 +8,8 @@ import { Label } from '../FormControl/Label'
 const StyledInput = styled.input`
   --input-radius: 0;
   --size-input-default: 3rem;
-  width: 100%;
+  max-width: 100%;
+  flex-grow: 1;
   transition: all 0.2s ease;
   color: #000;
   border-radius: var(--input-radius);

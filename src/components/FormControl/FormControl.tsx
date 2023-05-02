@@ -11,7 +11,7 @@ export const FormControl = styled.div<FormControlProps>`
   position: relative;
   .input-icon {
     position: absolute;
-    bottom: calc(var(--size-input-default) / 2);
+    bottom: calc(var(--size-input-default, 3rem) / 2);
     transform: translateY(50%);
     width: 2rem;
     height: 2rem;
