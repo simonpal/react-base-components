@@ -4,15 +4,15 @@ import styled, { keyframes } from 'styled-components'
 import { getClasses } from '../../helpers'
 
 const ripple = keyframes`
-    from {
-                opacity: 0.7;
-                transform: scale(0);
-            }
+  from {
+      opacity: 0.7;
+      transform: scale(0);
+  }
 
-            to {
-                opacity: 0;
-                transform: scale(10);
-            }
+  to {
+      opacity: 0;
+      transform: scale(10);
+  }
 `
 
 type StyledButtonProps = {

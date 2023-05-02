@@ -1,47 +1,33 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { spacing } from 'src/storybookHelper'
 
-import { Button } from './Button'
+// import { buttonType, priority } from '../../storybookHelper'
+import { ToggleSwitch } from './ToggleSwitch'
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
-const meta: Meta<typeof Button> = {
-  title: 'Example/Button',
-  component: Button,
+const meta: Meta<typeof ToggleSwitch> = {
+  title: 'Components/ToggleSwitch',
+  component: ToggleSwitch,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
-    backgroundColor: { control: 'color' },
+    id: { control: 'text' },
+    checked: { control: 'boolean' },
+    name: { control: 'text' },
+    small: { control: 'boolean' },
+    disabled: { control: 'boolean' },
   },
 }
 
 export default meta
-type Story = StoryObj<typeof Button>
+type Story = StoryObj<typeof ToggleSwitch>
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 export const Primary: Story = {
   // More on args: https://storybook.js.org/docs/react/writing-stories/args
   args: {
-    primary: true,
-    label: 'Button',
-  },
-}
-
-export const Secondary: Story = {
-  args: {
-    label: 'Button',
-  },
-}
-
-export const Large: Story = {
-  args: {
-    size: 'large',
-    label: 'Button',
-  },
-}
-
-export const Small: Story = {
-  args: {
-    size: 'small',
-    label: 'Button',
+    id: 'myswitch',
+    small: true,
   },
 }
