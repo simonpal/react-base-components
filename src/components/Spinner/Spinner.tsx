@@ -36,7 +36,7 @@ const StyledSpinner = styled.div<SpinnerProps>`
     position: relative;
     text-indent: -9999em;
     transform: translateZ(0);
-    animation: ${spin} 1.1s infinite linear;
+    animation: ${spin} 1.1s infinite cubic-bezier(0.58, 0.32, 0.44, 0.72); // linear
     border-style: solid;
     border-top-color: rgba(255, 255, 255, 0.2);
     border-bottom-color: rgba(255, 255, 255, 0.2);
