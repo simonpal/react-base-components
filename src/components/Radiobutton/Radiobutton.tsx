@@ -4,13 +4,11 @@ import styled from 'styled-components'
 import { FormControl } from '../FormControl/FormControl'
 import { Label } from '../FormControl/Label'
 
-const CheckboxWrapper = styled(FormControl)`
+const RadiobuttonWrapper = styled(FormControl)`
   --form-control-color: #0000ff;
   --form-control-disabled: #555;
   align-items: center;
-  input[type='checkbox'] {
-    /* Add if not using autoprefixer */
-    -webkit-appearance: none;
+  input[type='radio'] {
     /* Remove most all native input styles */
     appearance: none;
     /* For iOS < 15 */
@@ -23,7 +21,7 @@ const CheckboxWrapper = styled(FormControl)`
     width: 1.15em;
     height: 1.15em;
     border: 0.15em solid currentColor;
-    border-radius: 0.15em;
+    border-radius: 50%;
     transform: translateY(-0.075em);
 
     display: grid;
@@ -32,9 +30,8 @@ const CheckboxWrapper = styled(FormControl)`
       content: '';
       width: 0.65em;
       height: 0.65em;
-      clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+      border-radius: 50%;
       transform: scale(0);
-      transform-origin: bottom left;
       transition: 120ms transform ease-in-out;
       box-shadow: inset 1em 1em var(--form-control-color);
       /* Windows High Contrast Mode */
@@ -56,7 +53,7 @@ const CheckboxWrapper = styled(FormControl)`
   }
 `
 
-export type CheckboxProps = {
+export type RadiobuttonProps = {
   fullWidth?: boolean
   id: string
   label: string | JSX.Element
@@ -65,13 +62,13 @@ export type CheckboxProps = {
   name?: string
 }
 
-export interface StyledCheckboxProps {
+export interface StyledRadiobuttonProps {
   $fullWidth: boolean
 }
 
-export const Checkbox = forwardRef<
+export const Radiobutton = forwardRef<
   HTMLInputElement,
-  CheckboxProps & React.InputHTMLAttributes<HTMLInputElement>
+  RadiobuttonProps & React.InputHTMLAttributes<HTMLInputElement>
 >(
   (
     {
@@ -88,14 +85,14 @@ export const Checkbox = forwardRef<
     ref?: React.Ref<HTMLInputElement>,
   ) => {
     return (
-      <CheckboxWrapper
+      <RadiobuttonWrapper
         inlineControl
         fullWidth={fullWidth}
         className={`base-checkbox ${className ? ` ${className}` : ''}`}
       >
-        <Label htmlFor={id} tabIndex={0}>
+        <Label htmlFor={id}>
           <input
-            type="checkbox"
+            type="radio"
             id={id}
             onChange={onChange}
             name={name}
@@ -134,7 +131,7 @@ export const Checkbox = forwardRef<
 
           {!hideLabel && label}
         </Label>
-      </CheckboxWrapper>
+      </RadiobuttonWrapper>
     )
   },
 )
