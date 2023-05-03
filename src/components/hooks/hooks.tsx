@@ -112,7 +112,7 @@ export const useScript = (url: string) => {
   }, [url])
 }
 
-interface CookieOptions {
+type CookieOptions = {
   expires?: Date | number | string
   path?: string
   domain?: string

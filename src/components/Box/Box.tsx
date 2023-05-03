@@ -65,7 +65,7 @@ const StyledBox = styled.div<StyledBoxProps>`
     `}
 `
 
-export interface BoxProps {
+export type BoxProps = {
   backgroundColor?: string
   width?: string
   color?: string
