@@ -1,7 +1,6 @@
 import React, { forwardRef, useCallback, useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 
-import { getClasses } from '../../helpers'
 import { useRoveFocus } from '../hooks/hooks'
 import { AngleDownIcon } from '../icons/AngleDownIcon'
 import { TimesIcon } from '../icons/TimesIcon'
@@ -341,16 +340,6 @@ export const Dropdown = forwardRef<
         setFilteredOptions(options || [])
       }
     }, [searchValue])
-
-    // useEffect(() => {
-    //   getElementFromTop();
-    //   window.addEventListener('scroll', getElementFromTop);
-    //   document.addEventListener('mousedown', handleClickOutside);
-    //   return () => {
-    //     window.removeEventListener('scroll', getElementFromTop);
-    //     document.removeEventListener('mousedown', handleClickOutside);
-    //   };
-    // }, []);
 
     const clearValue = (e: any) => {
       e.stopPropagation()

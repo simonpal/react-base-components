@@ -23,7 +23,7 @@ const ChildWrapper = styled.div`
   display: inline-flex;
 `
 
-export interface InlineStackProps {
+export type InlineStackProps = {
   spacing: Spacings
   children: React.ReactNode
   justifyContent?: Justify

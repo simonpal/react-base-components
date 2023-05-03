@@ -5,7 +5,7 @@ import { BREAKPOINTS, COLS } from '../../constants'
 // import { getClasses } from '../../helpers'
 import { AlignItems, ColumnSize, Justify, Spacings } from '../../types'
 
-export interface ColumnProps {
+export type ColumnProps = {
   xs?: ColumnSize
   sm?: ColumnSize
   md?: ColumnSize
@@ -77,24 +77,7 @@ const Column: React.FunctionComponent<ColumnProps & React.HTMLAttributes<HTMLDiv
   $spacing,
   ...rest
 }) => {
-  //   const classes = getClasses({
-  //     [`base-flex-align-${alignItems}`]: !!alignItems,
-  //     [`base-flex-justify-${justifyContent}`]: !!justifyContent,
-  //     [`base-col-lg-${lg}`]: !!lg,
-  //     [`base-col-md-${md}`]: !!md,
-  //     [`base-col-sm-${sm}`]: !!sm,
-  //     [`base-col-xs-${xs}`]: !!xs,
-  //     [`base-col-xs-offset-${xsOffset}`]: !!xsOffset,
-  //     [`base-col-sm-offset-${smOffset}`]: !!smOffset,
-  //     [`base-col-md-offset-${mdOffset}`]: !!mdOffset,
-  //     [`base-col-lg-offset-${lgOffset}`]: !!lgOffset,
-  //     [`base-flex-grow-${flexGrow}`]: !!flexGrow,
-  //   })
-
   return (
-    // <div className={`base-col ${classes} ${className ? ` ${className}` : ''}`} {...rest}>
-    //   {children}
-    // </div>
     <StyledColumn
       lg={lg}
       md={md}

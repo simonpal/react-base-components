@@ -54,7 +54,7 @@ const StyledModal = styled.div<StyledModalProps>`
   }
 `
 
-export interface ModalProps {
+export type ModalProps = {
   visible: boolean
   width?: string
   alignItems?: AlignItems
@@ -77,15 +77,6 @@ export const Modal: React.FunctionComponent<ModalProps & React.HTMLAttributes<HT
   ...rest
 }) => {
   if (!visible) return null
-
-  //   const classes = getClasses({
-  //     [`co-flex-align-${alignItems}`]: !!alignItems,
-  //     [`co-flex-justify-${justifyContent}`]: !!justifyContent,
-  //   })
-  //   const btnClasses = getClasses({
-  //     [`inline-close-btn`]: inlineCloseButton,
-  //     [`mobile-inline-close-btn`]: mobileInlineCloseButton,
-  //   })
 
   const inlineStyle = {
     ...(zIndex && { zIndex: zIndex + 1 }),

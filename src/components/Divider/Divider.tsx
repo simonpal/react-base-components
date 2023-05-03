@@ -5,12 +5,12 @@ import styled from 'styled-components'
 // import { getClasses, getShortSpacing } from '../utils/helpers';
 import { Spacings } from '../../types'
 
-export interface DividerProps {
+export type DividerProps = {
   color?: string
   spacing: Spacings
   mobileSpacing?: Spacings
 }
-interface StyledDividerProps {
+type StyledDividerProps = {
   $spacing: Spacings
   $mobileSpacing?: Spacings
 }
@@ -28,13 +28,6 @@ const StyledDivider = styled.div<StyledDividerProps>`
 export const Divider: React.FunctionComponent<
   DividerProps & React.HTMLAttributes<HTMLDivElement>
 > = ({ color, spacing = 'l', mobileSpacing, className, ...rest }) => {
-  //   const classes = getClasses({
-  //     [`co-mt-${getShortSpacing(spacing || 'none')}`]: !!spacing,
-  //     [`co-mb-${getShortSpacing(spacing || 'none')}`]: !!spacing,
-  //     [`co-mobile-mt-${getShortSpacing(mobileSpacing || 'none')}`]: !!mobileSpacing,
-  //     [`co-mobile-mb-${getShortSpacing(mobileSpacing || 'none')}`]: !!mobileSpacing,
-  //   });
-
   const inlineStyle = {
     ...(color && { ['--divider-color']: color }),
   } as any

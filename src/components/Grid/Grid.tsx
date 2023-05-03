@@ -8,7 +8,7 @@ import styled, { css } from 'styled-components'
 import { AlignItems, Direction, Justify, Spacings } from '../../types'
 import Column, { ColumnProps } from './Column'
 
-export interface GridProps {
+export type GridProps = {
   spacing: Spacings
   direction?: Direction
   mobileDirection?: Direction
@@ -18,7 +18,7 @@ export interface GridProps {
   mobileSpacing?: Spacings
 }
 
-interface StyledProps {
+type StyledProps = {
   $spacing: Spacings
   $direction?: Direction
   $mobileDirection?: Direction
@@ -63,18 +63,7 @@ const Grid: React.FunctionComponent<GridProps & React.HTMLAttributes<HTMLDivElem
   //   className,
   ...rest
 }) => {
-  //   const classes = getClasses({
-  //     [`base-flex-align-${alignItems}`]: !!alignItems,
-  //     [`base-flex-justify-${justifyContent}`]: !!justifyContent,
-  //     [`base-flex-direction-${direction}`]: !!direction,
-  //     [`base-child-spacing-${spacing}`]: !!spacing,
-  //     [`base-child-mobile-spacing-${mobileSpacing || 'none'}`]: !!mobileSpacing,
-  //   })
-
   return (
-    // <div className={`base-row ${classes} ${className ? ` ${className}` : ''}`} {...rest}>
-    //   {children}
-    // </div>
     <StyledGrid
       $spacing={spacing}
       $direction={direction}

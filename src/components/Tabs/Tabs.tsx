@@ -54,7 +54,7 @@ const TabHeaders = styled.ul`
   }
 `
 
-export interface TabProps {
+export type TabProps = {
   children: React.ReactNode[]
   defaultActiveIndex?: number
   onTabChange?: (idx: number) => void
@@ -115,7 +115,7 @@ export const Tabs = ({ children, onTabChange, defaultActiveIndex = 0, className 
   )
 }
 
-export interface TabItemProps {
+export type TabItemProps = {
   children: any
   eventKey: string
   title: string

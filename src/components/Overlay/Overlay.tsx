@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import styled, { css } from 'styled-components'
-export interface OverlayProps {
+export type OverlayProps = {
   zIndex?: number
   visible?: boolean
   transparent?: boolean

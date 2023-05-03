@@ -28,7 +28,7 @@ const StyledChild = styled.div<ChildProps>`
   }
 `
 
-interface WrapperProps {
+type WrapperProps = {
   alignItems?: AlignItems
   justifyContent?: Justify
 }

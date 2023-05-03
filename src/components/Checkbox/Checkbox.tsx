@@ -65,7 +65,7 @@ export type CheckboxProps = {
   name?: string
 }
 
-export interface StyledCheckboxProps {
+export type StyledCheckboxProps = {
   $fullWidth: boolean
 }
 
@@ -103,34 +103,6 @@ export const Checkbox = forwardRef<
             {...rest}
             ref={ref}
           />
-          {/* <svg width={24} height={24} aria-hidden="true" style={{ marginRight: 4 }}>
-            <rect
-              x={5}
-              y={5}
-              width={14}
-              height={14}
-              fill={'none'}
-              strokeWidth={2}
-              stroke={'#000000'}
-            />
-            <path
-              fill={`#FFFFFF`}
-              transform="translate(7 7)"
-              d={`M3.788 9A.999.999 0 0 1 3 8.615l-2.288-3a1 1 0 1 1
-            1.576-1.23l1.5 1.991 3.924-4.991a1 1 0 1 1 1.576 1.23l-4.712
-            6A.999.999 0 0 1 3.788 9z`}
-            />
-            <rect
-              x={1}
-              y={1}
-              width={22}
-              height={22}
-              fill="none"
-              stroke={`#0000FF`}
-              strokeWidth={2}
-              className="focus"
-            />
-          </svg> */}
 
           {!hideLabel && label}
         </Label>

@@ -4,7 +4,7 @@ import { AlignItems, ColumnSize, Direction, Justify, Spacings } from '../../type
 import Column from './Column'
 import Grid from './Grid'
 
-export interface GridPageProps {
+export type GridPageProps = {
   spacing: Spacings // Pick<GridProps, 'spacing'>
   direction?: Direction // Pick<GridProps, 'spacing'>
   mobileDirection?: Direction

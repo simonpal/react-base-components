@@ -10,9 +10,9 @@ const StyledAccordionItem = styled.div`
 
 const AccordionTitleButton = styled.button`
   flex-direction: row;
-  height: var(--size-button-default);
-  font-size: var(--desktop-body-regular-fontSize);
-  line-height: var(--desktop-body-regular-lineHeight);
+  height: var(--size-button-default, 2.5rem);
+  font-size: 1rem;
+  line-height: 1.5;
   font-weight: bold;
   padding: var(--spacing-xs);
   display: flex;
@@ -53,7 +53,7 @@ type AccordionCtx = {
 }
 export const AccordionContext = createContext<AccordionCtx>({})
 
-export interface AccordionProps {
+export type AccordionProps = {
   singleSelect?: boolean
   defaultActiveKey?: string
 }
@@ -90,7 +90,7 @@ export const Accordion: React.FC<AccordionProps & React.HTMLAttributes<HTMLDivEl
   )
 }
 
-export interface AccordionItemProps {
+export type AccordionItemProps = {
   children: any
   eventKey: string
   title: string
@@ -140,7 +140,7 @@ export const AccordionItem: React.FC<AccordionItemProps> = ({
         })}
       {!titleComponent && (
         <AccordionTitleButton
-          className={`co-accordion-title ${disabled ? 'disabled' : ''} ${isOpen ? 'open' : ''}`}
+          className={`base-accordion-title ${disabled ? 'disabled' : ''} ${isOpen ? 'open' : ''}`}
           type="button"
           id={`${eventKey}-trigger`}
           aria-controls={`${eventKey}-section`}
@@ -156,7 +156,7 @@ export const AccordionItem: React.FC<AccordionItemProps> = ({
       )}
 
       <AccordionContent
-        className={`co-accordion-content ${isOpen ? 'open' : ''}`}
+        className={`base-accordion-content ${isOpen ? 'open' : ''}`}
         id={`${eventKey}-section`}
         style={contentStyle}
         role="region"

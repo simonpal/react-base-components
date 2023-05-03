@@ -100,23 +100,9 @@ export const Box = forwardRef<HTMLDivElement, BoxProps & React.HTMLAttributes<HT
     },
     ref?: React.Ref<HTMLDivElement>,
   ) => {
-    // const classes = getClasses({
-    //   [`co-flex-align-${alignItems}`]: !!alignItems,
-    //   [`co-flex-justify-${justifyContent}`]: !!justifyContent,
-    //   [`co-flex-direction-${flexDirection}`]: !!flexDirection,
-    //   [`co-padding-${getShortSpacing(spacing || 'none')}`]: !!spacing,
-    //   [`co-pt-${getShortSpacing(topSpacing || 'none')}`]: !!topSpacing && !spacing,
-    //   [`co-pb-${getShortSpacing(bottomSpacing || 'none')}`]: !!bottomSpacing && !spacing,
-    //   [`co-pr-${getShortSpacing(rightSpacing || 'none')}`]: !!rightSpacing && !spacing,
-    //   [`co-pl-${getShortSpacing(leftSpacing || 'none')}`]: !!leftSpacing && !spacing,
-    // });
-
     const inlineStyle = {
       ...(backgroundColor && { ['--box-background']: backgroundColor }),
       ...(color && { ['--box-color']: color }),
-      //   ...(color && { color }),
-      //   ...(width && { width }),
-      //   ...(zIndex && { zIndex }),
     } as any
     return (
       <StyledBox
