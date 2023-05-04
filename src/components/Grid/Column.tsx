@@ -62,7 +62,9 @@ const StyledColumn = styled.div<ColumnProps>`
   }
 `
 
-const Column: React.FunctionComponent<ColumnProps & React.HTMLAttributes<HTMLDivElement>> = ({
+export const Column: React.FunctionComponent<
+  ColumnProps & React.HTMLAttributes<HTMLDivElement>
+> = ({
   xs = '12',
   sm = '12',
   md = '12',
@@ -95,5 +97,3 @@ const Column: React.FunctionComponent<ColumnProps & React.HTMLAttributes<HTMLDiv
     />
   )
 }
-
-export default Column

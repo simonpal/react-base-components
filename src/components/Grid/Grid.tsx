@@ -6,7 +6,7 @@ import styled, { css } from 'styled-components'
 
 // import { getClasses } from '../../helpers'
 import { AlignItems, Direction, Justify, Spacings } from '../../types'
-import Column, { ColumnProps } from './Column'
+import { Column, ColumnProps } from './Column'
 
 export type GridProps = {
   spacing: Spacings
@@ -51,7 +51,7 @@ const StyledGrid = styled.div<StyledProps>`
     `}
 `
 
-const Grid: React.FunctionComponent<GridProps & React.HTMLAttributes<HTMLDivElement>> = ({
+export const Grid: React.FunctionComponent<GridProps & React.HTMLAttributes<HTMLDivElement>> = ({
   spacing = 's',
   direction = 'row',
   mobileDirection = 'column',
@@ -85,5 +85,3 @@ const Grid: React.FunctionComponent<GridProps & React.HTMLAttributes<HTMLDivElem
     </StyledGrid>
   )
 }
-
-export default Grid

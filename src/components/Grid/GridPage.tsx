@@ -1,8 +1,8 @@
 // import { ColumnSize, Spacings } from 'src/types'
 
 import { AlignItems, ColumnSize, Direction, Justify, Spacings } from '../../types'
-import Column from './Column'
-import Grid from './Grid'
+import { Column } from './Column'
+import { Grid } from './Grid'
 
 export type GridPageProps = {
   spacing: Spacings // Pick<GridProps, 'spacing'>
