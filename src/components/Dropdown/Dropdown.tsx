@@ -241,7 +241,7 @@ export const Dropdown = forwardRef<
       defaultValue,
       value,
       icon,
-      clearable,
+      // clearable,
       handleChange,
       maxHeight: setMaxHeight,
       ...rest
@@ -341,11 +341,11 @@ export const Dropdown = forwardRef<
       }
     }, [searchValue])
 
-    const clearValue = (e: any) => {
-      e.stopPropagation()
-      setSelectedValue(defaultValue)
-      emitHandle(null)
-    }
+    // const clearValue = (e: any) => {
+    //   e.stopPropagation()
+    //   setSelectedValue(defaultValue)
+    //   emitHandle(null)
+    // }
 
     useEffect(() => {
       if (inputRef.current) {
@@ -414,17 +414,12 @@ export const Dropdown = forwardRef<
           />
         )}
         {!search && (
-          <label
-            className={`styled-label ${clearable && 'clearable'}`}
-            role="alert"
-            aria-live="polite"
-            aria-atomic="true"
-          >
+          <label className={`styled-label`} role="alert" aria-live="polite" aria-atomic="true">
             {icon && <div className="icon">{icon}</div>}
             {hasValue ? selectedValue : placeholder}
           </label>
         )}
-        {clearable && (
+        {/* {clearable && (
           <button
             className="clear-button"
             title="clear value"
@@ -433,7 +428,7 @@ export const Dropdown = forwardRef<
           >
             <TimesIcon />
           </button>
-        )}
+        )} */}
         <i aria-hidden="true" className={`dropdown-icon ${isFocused && 'is-focused'}`}>
           <AngleDownIcon />
         </i>

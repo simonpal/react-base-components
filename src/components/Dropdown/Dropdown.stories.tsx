@@ -1,21 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { color } from 'src/storybookHelper'
 
 import { Dropdown } from './Dropdown'
-
-// export type DropdownProps = {
-//     placeholder: string
-//     options?: Option[]
-//     search?: boolean
-//     disabled?: boolean
-//     defaultValue?: string
-//     handleChange?: (val: Option | null) => void
-//     icon?: JSX.Element
-//     value?: string
-//     clearable?: boolean
-//     onWhite?: boolean
-//     maxHeight?: string
-//   }
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta: Meta<typeof Dropdown> = {
@@ -28,7 +13,6 @@ const meta: Meta<typeof Dropdown> = {
     placeholder: { control: 'text' },
     search: { control: 'boolean' },
     disabled: { control: 'boolean' },
-    clearable: { control: 'boolean' },
   },
 }
 
@@ -47,17 +31,3 @@ export const Primary: Story = {
     placeholder: 'Select country',
   },
 }
-
-// export const Large: Story = {
-//   args: {
-//     size: 'large',
-//     label: 'Button',
-//   },
-// }
-
-// export const Small: Story = {
-//   args: {
-//     size: 'small',
-//     label: 'Button',
-//   },
-// }
