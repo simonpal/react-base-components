@@ -5,12 +5,14 @@ export type OverlayProps = {
   visible?: boolean
   transparent?: boolean
   disableClick?: boolean
+  blur?: boolean
   onClose?: () => void
 }
 
 type StyledOverlayProps = {
   $transparent: boolean
   $zIndex: number
+  $blur: boolean
 }
 
 const StyledOverlay = styled.div<StyledOverlayProps>`
@@ -31,6 +33,11 @@ const StyledOverlay = styled.div<StyledOverlayProps>`
     css`
       background-color: transparent;
     `}
+  ${({ $blur }) =>
+    $blur &&
+    css`
+      backdrop-filter: blur(5px);
+    `}
 `
 
 export const Overlay: React.FunctionComponent<
@@ -40,6 +47,7 @@ export const Overlay: React.FunctionComponent<
   zIndex = 2,
   visible = false,
   disableClick = false,
+  blur = false,
   onClose,
   className,
   ...rest
@@ -59,11 +67,12 @@ export const Overlay: React.FunctionComponent<
   return (
     <StyledOverlay
       ref={ovRef}
-      className={`co-overlay ${className ? ` ${className}` : ''}`}
+      className={`base-overlay ${className ? ` ${className}` : ''}`}
       aria-hidden="true"
       style={inlineStyle}
       $transparent={transparent}
       $zIndex={zIndex}
+      $blur={blur}
       {...rest}
       onClick={handleClick}
     />

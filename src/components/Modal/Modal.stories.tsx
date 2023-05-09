@@ -14,6 +14,7 @@ const meta: Meta<typeof Modal> = {
   argTypes: {
     alignItems,
     justifyContent,
+    blur: { control: 'boolean' },
     visible: { control: 'boolean' },
     width: { control: 'string' },
     zIndex: { control: 'number' },
@@ -27,7 +28,7 @@ type Story = StoryObj<typeof Modal>
 export const OneItem: Story = {
   render: (args) => (
     <Modal {...args}>
-      <div style={{ backgroundColor: '#FFF', padding: 'var(--spacing-m)' }}>
+      <div style={{ backgroundColor: '#FFF', padding: 'var(--spacing-xl)', borderRadius: '1rem' }}>
         <h3>This is a heading</h3>
         <p>
           Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor

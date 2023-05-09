@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { AlignItems, Justify } from '../../types'
 import { TimesIcon } from '../icons/TimesIcon'
 // import Box from '../box/Box';
-import { Overlay } from '../Overlay/Overlay'
+import { Overlay, OverlayProps } from '../Overlay/Overlay'
 // import { getClasses } from '../utils/helpers';
 
 type StyledModalProps = {
@@ -54,13 +54,11 @@ const StyledModal = styled.div<StyledModalProps>`
   }
 `
 
-export type ModalProps = {
+export interface ModalProps extends OverlayProps {
   visible: boolean
   width?: string
   alignItems?: AlignItems
   justifyContent?: Justify
-  zIndex?: number
-  disableOverlayClick?: boolean
   onClose: () => void
 }
 
@@ -70,9 +68,10 @@ export const Modal: React.FunctionComponent<ModalProps & React.HTMLAttributes<HT
   width = '50rem',
   onClose,
   zIndex = 5,
-  disableOverlayClick = false,
+  disableClick = false,
   alignItems = 'flex-start',
   justifyContent = 'flex-start',
+  blur,
   className,
   ...rest
 }) => {
@@ -87,11 +86,12 @@ export const Modal: React.FunctionComponent<ModalProps & React.HTMLAttributes<HT
       <Overlay
         visible={visible}
         onClose={onClose}
-        disableClick={disableOverlayClick}
+        disableClick={disableClick}
         zIndex={zIndex}
+        blur={blur}
       >
         <StyledModal
-          className={`co-modal ${className ? ` ${className}` : ''}`}
+          className={`base-modal ${className ? ` ${className}` : ''}`}
           style={inlineStyle}
           $alignItems={alignItems}
           $justifyContent={justifyContent}
