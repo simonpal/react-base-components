@@ -3,7 +3,6 @@ import styled from 'styled-components'
 
 import { useRoveFocus } from '../hooks/hooks'
 import { AngleDownIcon } from '../icons/AngleDownIcon'
-import { TimesIcon } from '../icons/TimesIcon'
 import DropdownItem, { Option } from './DropdownItem'
 
 const StyledDropdown = styled.div`
