@@ -3,6 +3,13 @@
   "private": false,
   "version": "0.0.01",
   "type": "module",
+  "homepage": "http://simonpal.github.io/react-base-components",
+  "keywords": [],
+  "author": "Simon Palmberg",
+  "license": "MIT",
+  "main": "./dist/react-base-components.umd.js",
+  "module": "./dist/react-base-components.es.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -12,7 +19,9 @@
     "format": "prettier --write src//**/*.{ts,tsx,css} --config ./.prettierrc",
     "prepare": "husky install",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "predeploy": "npm run build-storybook",
+    "deploy-storybook": "gh-pages -d storybook-static"
   },
   "husky": {
     "hooks": {
@@ -35,9 +44,6 @@
     },
     "./dist/style.css": "./dist/style.css"
   },
-  "main": "./dist/react-base-components.umd.js",
-  "module": "./dist/react-base-components.es.js",
-  "types": "./dist/index.d.ts",
   "devDependencies": {
     "@storybook/addon-essentials": "^7.0.6",
     "@storybook/addon-interactions": "^7.0.6",
@@ -65,6 +71,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "eslint-plugin-storybook": "^0.6.11",
+    "gh-pages": "^5.0.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
@@ -90,13 +97,9 @@
     "type": "git",
     "url": "https://github.com/simonpal/react-base-components"
   },
-  "keywords": [],
-  "author": "Simon Palmberg",
   "bugs": {
     "url": "https://github.com/simonpal/react-base-components/issues"
   },
-  "homepage": "https://github.com/simonpal/react-base-components#readme",
-  "license": "MIT",
   "dependencies": {
     "styled-components": "^5.3.10"
   }
