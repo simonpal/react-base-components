@@ -17,8 +17,17 @@ jobs:
           npm ci
           npm run build-storybook
 
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Deploy to GitHub Pages
+        uses: crazy-max/ghaction-github-pages@v3
         with:
-          branch: gh-pages
-          folder: storybook-static # output folder from `npm run build-storybook`
+          target_branch: gh-pages
+          build_dir: storybook-static
+          commit_message: 'chore(deploy): Storybook'
+          keep_history: false
+          jekyll: false
+
+      # - name: Deploy
+      #   uses: JamesIves/github-pages-deploy-action@v4
+      #   with:
+      #     branch: gh-pages
+      #     folder: storybook-static # output folder from `npm run build-storybook`
