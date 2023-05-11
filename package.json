@@ -19,6 +19,7 @@
     "format": "prettier --write src//**/*.{ts,tsx,css} --config ./.prettierrc",
     "prepare": "husky install",
     "storybook": "storybook dev -p 6006",
+    "serve-storybook": "npx http-server storybook-static -p 3004",
     "build-storybook": "storybook build",
     "predeploy": "npm run build-storybook",
     "deploy-storybook": "gh-pages -d storybook-static"
