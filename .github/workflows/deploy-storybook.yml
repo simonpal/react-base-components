@@ -25,6 +25,8 @@ jobs:
           commit_message: 'chore(deploy): Storybook'
           keep_history: false
           jekyll: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # - name: Deploy
       #   uses: JamesIves/github-pages-deploy-action@v4
