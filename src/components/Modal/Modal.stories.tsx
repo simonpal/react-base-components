@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { alignItems, justifyContent } from 'src/storybookHelper'
 
 // import { buttonType, priority } from '../../storybookHelper'
-import { Modal, ModalProps } from './Modal'
+import { Modal } from './Modal'
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta: Meta<typeof Modal> = {
