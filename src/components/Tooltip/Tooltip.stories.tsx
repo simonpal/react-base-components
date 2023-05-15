@@ -24,7 +24,7 @@ export const Primary: Story = {
   render: (args) => (
     <div style={{ display: 'flex', justifyContent: 'center', margin: '4rem' }}>
       <Tooltip {...args}>
-        <button>Add</button>
+        <button>Hover me</button>
       </Tooltip>
     </div>
   ),
