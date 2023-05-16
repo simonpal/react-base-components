@@ -33,6 +33,7 @@ export const Divider: React.FunctionComponent<
   } as any
   return (
     <StyledDivider
+      aria-hidden="true"
       className={`base-divider ${className ? ` ${className}` : ''}`}
       $spacing={spacing}
       $mobileSpacing={mobileSpacing ?? spacing}
