@@ -1,7 +1,7 @@
 import React from 'react'
-import { BREAKPOINTS } from 'src/constants'
 import styled from 'styled-components'
 
+import { BREAKPOINTS } from '../../constants'
 // import { getClasses, getShortSpacing } from '../utils/helpers';
 import { Spacings } from '../../types'
 
