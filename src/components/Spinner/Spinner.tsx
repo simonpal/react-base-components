@@ -54,14 +54,14 @@ export type SpinnerProps = {
 
 export const Spinner: React.FunctionComponent<
   SpinnerProps & React.HTMLAttributes<HTMLDivElement>
-> = ({ color, size = 'sm', borderWidth, className }) => {
+> = ({ color, size = 'sm', borderWidth, className, ...rest }) => {
   const inlineStyle = {
     ...(color && { ['--spinner-color']: color }),
     ...(borderWidth && { ['--spinner-width']: borderWidth }),
   } as any
 
   return (
-    <StyledSpinner size={size} className={`${className ? ` ${className}` : ''}`}>
+    <StyledSpinner size={size} className={`${className ? ` ${className}` : ''}`} {...rest}>
       <div style={inlineStyle} />
     </StyledSpinner>
   )

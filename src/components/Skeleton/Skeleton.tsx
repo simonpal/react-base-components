@@ -91,6 +91,7 @@ export const Skeleton: React.FunctionComponent<
   //   fontSize,
   variant = 'rectangular',
   dark = false,
+  ...rest
 }) => {
   return (
     <StyledSkeleton
@@ -100,6 +101,7 @@ export const Skeleton: React.FunctionComponent<
       //   $fontSize={fontSize}
       $variant={variant}
       $rgb={dark ? '255,255,255' : '0,0,0'}
+      {...rest}
     />
   )
 }
