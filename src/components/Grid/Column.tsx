@@ -93,6 +93,7 @@ export const Column: React.FunctionComponent<
       alignItems={alignItems}
       flexGrow={flexGrow}
       $spacing={$spacing}
+      data-testid="grid-column"
       {...rest}
     />
   )

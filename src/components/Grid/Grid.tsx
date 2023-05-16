@@ -1,9 +1,9 @@
 // import './Grid.scss'
 
 import React, { Children, cloneElement, PropsWithChildren } from 'react'
-import { BREAKPOINTS } from 'src/constants'
 import styled, { css } from 'styled-components'
 
+import { BREAKPOINTS } from '../../constants'
 // import { getClasses } from '../../helpers'
 import { AlignItems, Direction, Justify, Spacings } from '../../types'
 import { Column, ColumnProps } from './Column'
