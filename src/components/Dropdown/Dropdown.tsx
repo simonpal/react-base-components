@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import { useRoveFocus } from '../hooks/hooks'
 import { AngleDownIcon } from '../icons/AngleDownIcon'
-import DropdownItem, { Option } from './DropdownItem'
+import { DropdownItem, Option } from './DropdownItem'
 
 const StyledDropdown = styled.div`
   background-color: #fff;
@@ -320,7 +320,9 @@ export const Dropdown = forwardRef<
     }
 
     const handleDropdownKeyPress = (e: any) => {
-      if (e.key === 'Enter' && !disabled) {
+      if (e.key === 'Escape') {
+        setIsFocused(false)
+      } else if (e.key === 'Enter' && !disabled) {
         setIsFocused(!isFocused)
       }
     }
@@ -392,7 +394,7 @@ export const Dropdown = forwardRef<
         aria-expanded={isFocused}
         aria-disabled={disabled || false}
         onClick={() => !disabled && setIsFocused(!isFocused)}
-        onKeyPress={handleDropdownKeyPress}
+        onKeyDown={handleDropdownKeyPress}
         tabIndex={0}
         {...rest}
       >

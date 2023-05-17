@@ -13,7 +13,7 @@ export type DropdownItemProps = {
   handleClick: (e: any, option: Option, index: number) => void
 }
 
-const DropdownItem: React.FunctionComponent<
+export const DropdownItem: React.FunctionComponent<
   DropdownItemProps & React.HTMLAttributes<HTMLLIElement>
 > = ({ option, focus, index, handleClick }) => {
   const ref = useRef<HTMLLIElement>(null)
@@ -42,5 +42,3 @@ const DropdownItem: React.FunctionComponent<
     </li>
   )
 }
-
-export default DropdownItem
