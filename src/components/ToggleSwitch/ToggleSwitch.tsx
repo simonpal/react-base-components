@@ -130,14 +130,18 @@ export const ToggleSwitch = ({
   disabled,
 }: ToggleSwitchProps) => {
   const handleKeyPress = (e: React.KeyboardEvent<HTMLLabelElement>) => {
-    if (e.keyCode !== 32 && e.keyCode !== 13) return
+    if (e.code !== 'Enter' && e.code !== 'Space') return
 
     e.preventDefault()
     onChange(!checked)
   }
 
   return (
-    <StyledToggleSwitch className={`${small ? ' small-switch' : ''}`}>
+    <StyledToggleSwitch
+      className={`${small ? ' small-switch' : ''}`}
+      role="switch"
+      aria-checked={checked}
+    >
       <input
         type="checkbox"
         name={name}
