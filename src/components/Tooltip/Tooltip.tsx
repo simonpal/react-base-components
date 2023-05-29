@@ -109,7 +109,9 @@ export const Tooltip: React.FunctionComponent<
   return (
     <TooltipWrapper>
       {children}
-      <StyledTooltip $position={position}>{title}</StyledTooltip>
+      <StyledTooltip $position={position} role="tooltip">
+        {title}
+      </StyledTooltip>
     </TooltipWrapper>
   )
 }
