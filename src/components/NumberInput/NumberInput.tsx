@@ -114,22 +114,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
       if (_value >= min && _value <= max) {
         handleChange(_value)
       }
-      // onChange(value >= min ? value : min);
     }
-
-    // const handleKeyDown = (e: any) => {
-    //   console.log(e.keyCode);
-    //   switch (e.keyCode) {
-    //     case 38:
-    //       _handleChange(Number(e.target.value));
-    //       break;
-    //     case 40:
-    //       _handleChange(Number(e.target.value));
-    //       break;
-    //     default:
-    //       break;
-    //   }
-    // };
 
     const minButtonDisabled = useMemo(() => {
       return disabled || value === min
