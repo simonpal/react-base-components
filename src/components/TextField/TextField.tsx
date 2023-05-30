@@ -1,7 +1,6 @@
 import React, { forwardRef, useEffect, useMemo, useRef, useState } from 'react'
 import styled from 'styled-components'
 
-import { getClasses } from '../../helpers'
 import { FormControl } from '../FormControl/FormControl'
 import { Label } from '../FormControl/Label'
 
@@ -132,16 +131,6 @@ export const TextField = forwardRef<
       return pos
     }, [type, iconLeft])
 
-    const wrapperClasses = getClasses({
-      [`icon-position-${iconPosition}`]: !!icon || type === 'password',
-      [`input-disabled`]: disabled,
-    })
-
-    const inputClasses = getClasses({
-      [`has-error`]: !!error,
-      [`is-dirty`]: isDirty,
-    })
-
     const inputOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       if (disabled) return
       // setInputValue(e.target.value);
@@ -159,7 +148,10 @@ export const TextField = forwardRef<
     }, [showAsText])
 
     return (
-      <FormControl fullWidth={fullWidth} className={`${wrapperClasses}`}>
+      <FormControl
+        fullWidth={fullWidth}
+        className={`${icon || type === 'password' ? `icon-position-${iconPosition}` : ''}`}
+      >
         {!hideLabel && (
           <Label htmlFor={id}>
             {label}
@@ -167,7 +159,9 @@ export const TextField = forwardRef<
           </Label>
         )}
         <StyledInput
-          className={`${inputClasses} ${className ? className : ''}`}
+          className={`${error ? 'has-error' : ''} ${isDirty ? 'is-dirty' : ''} ${
+            className ? className : ''
+          }`}
           ref={ref || inputRef}
           type={_type}
           id={id}

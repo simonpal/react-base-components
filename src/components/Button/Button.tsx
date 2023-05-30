@@ -1,8 +1,6 @@
 import React, { forwardRef, useMemo } from 'react'
 import styled, { keyframes } from 'styled-components'
 
-import { getClasses } from '../../helpers'
-
 const ripple = keyframes`
   from {
       opacity: 0.7;
@@ -177,10 +175,6 @@ export const Button = forwardRef<
     },
     ref?: React.Ref<HTMLButtonElement>,
   ) => {
-    const classes = getClasses({
-      [`icon-${iconLeft ? 'left' : 'right'}`]: true,
-    })
-
     const inlineStyle: any = useMemo(
       () => ({
         ['--ripple-background']: `var(--color-button-${priority}-hover)`,
@@ -192,7 +186,9 @@ export const Button = forwardRef<
       <StyledButton
         style={inlineStyle}
         aria-label={type}
-        className={`base-button ${priority} ${classes} ${className ? ` ${className}` : ''}`}
+        className={`base-button ${priority} icon-${iconLeft ? 'left' : 'right'} ${
+          className ? ` ${className}` : ''
+        }`}
         onClick={onClick}
         type={type}
         disabled={disabled}
