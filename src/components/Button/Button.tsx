@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { forwardRef, useMemo } from 'react'
 import styled, { keyframes } from 'styled-components'
 
 import { getClasses } from '../../helpers'
@@ -159,45 +159,52 @@ export type ButtonProps = {
   iconLeft?: boolean
 }
 
-export const Button: React.FunctionComponent<
+export const Button = forwardRef<
+  HTMLButtonElement,
   ButtonProps & React.HTMLAttributes<HTMLButtonElement>
-> = ({
-  children,
-  priority = 'primary',
-  disabled = false,
-  type = 'button',
-  fullWidth = false,
-  onClick,
-  iconLeft = false,
-  className,
-  ...rest
-}) => {
-  const classes = getClasses({
-    [`icon-${iconLeft ? 'left' : 'right'}`]: true,
-  })
+>(
+  (
+    {
+      children,
+      priority = 'primary',
+      disabled = false,
+      type = 'button',
+      fullWidth = false,
+      onClick,
+      iconLeft = false,
+      className,
+      ...rest
+    },
+    ref?: React.Ref<HTMLButtonElement>,
+  ) => {
+    const classes = getClasses({
+      [`icon-${iconLeft ? 'left' : 'right'}`]: true,
+    })
 
-  const inlineStyle: any = useMemo(
-    () => ({
-      ['--ripple-background']: `var(--color-button-${priority}-hover)`,
-    }),
-    [priority],
-  )
+    const inlineStyle: any = useMemo(
+      () => ({
+        ['--ripple-background']: `var(--color-button-${priority}-hover)`,
+      }),
+      [priority],
+    )
 
-  return (
-    <StyledButton
-      style={inlineStyle}
-      aria-label={type}
-      className={`base-button ${priority} ${classes} ${className ? ` ${className}` : ''}`}
-      onClick={onClick}
-      type={type}
-      disabled={disabled}
-      $fullWidth={fullWidth}
-      $iconLeft={iconLeft}
-      {...rest}
-    >
-      {children}
-    </StyledButton>
-  )
-}
+    return (
+      <StyledButton
+        style={inlineStyle}
+        aria-label={type}
+        className={`base-button ${priority} ${classes} ${className ? ` ${className}` : ''}`}
+        onClick={onClick}
+        type={type}
+        disabled={disabled}
+        $fullWidth={fullWidth}
+        $iconLeft={iconLeft}
+        ref={ref}
+        {...rest}
+      >
+        {children}
+      </StyledButton>
+    )
+  },
+)
 
 export default Button
