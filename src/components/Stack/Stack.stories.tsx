@@ -22,7 +22,7 @@ export default meta
 type Story = StoryObj<typeof Stack>
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-export const OneItem: Story = {
+export const Primary: Story = {
   render: (args) => (
     <Stack {...args}>
       <div>

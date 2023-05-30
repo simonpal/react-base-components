@@ -34,7 +34,7 @@ const meta: Meta<typeof GridPage> = {
 export default meta
 type Story = StoryObj<typeof GridPage>
 
-export const Simple: Story = {
+export const Primary: Story = {
   args: {
     spacing: 'm' as Spacings,
 

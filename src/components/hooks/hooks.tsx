@@ -1,4 +1,4 @@
-import { Dispatch, KeyboardEvent, SetStateAction, useCallback, useEffect, useState } from 'react'
+import { Dispatch, SetStateAction, useCallback, useEffect, useState } from 'react'
 
 export const useRoveFocus = (
   size: number,
@@ -112,12 +112,15 @@ export const useScript = (url: string) => {
   }, [url])
 }
 
+/* useCookie */
+
 type CookieOptions = {
   expires?: Date | number | string
   path?: string
   domain?: string
   secure?: boolean
 }
+
 const isBrowser = typeof window !== 'undefined'
 
 export const setCookie = (name: string, value: any, options: CookieOptions) => {
