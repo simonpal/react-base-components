@@ -130,7 +130,7 @@ export const DropMenuButton: React.FunctionComponent<
       >
         {label}
       </Button>
-      <ul role="menu" id={id} aria-label={label} ref={dropMenuRef}>
+      <ul role="menu" id={id} aria-label={typeof label === 'string' ? label : id} ref={dropMenuRef}>
         {children}
       </ul>
     </DropMenuButtonWrapper>
