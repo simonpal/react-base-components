@@ -6,6 +6,8 @@ The main purpose of this library is to make it easier by just copy paste compone
 
 Check out the components here: [Storybook](https://simonpal.github.io/react-base-components/)
 
+![Storybook preview](./storybook-img.png)
+
 ### Installation
 ``npm install``
 
